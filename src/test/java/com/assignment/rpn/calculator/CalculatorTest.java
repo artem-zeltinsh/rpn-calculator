@@ -27,113 +27,113 @@ public class CalculatorTest {
 
     @Test
     public void addNumbers() throws Exception {
-        calculator.interpret("5 2");
+        calculator.calculate("5 2");
         assertEquals("5 2", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void squareRootFromAPerfectSquare() throws CalculatorException {
-        calculator.interpret("25 sqrt");
+        calculator.calculate("25 sqrt");
         assertEquals("5", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void squareRootFromNotAPerfectSquare() throws CalculatorException {
-        calculator.interpret("2 sqrt");
+        calculator.calculate("2 sqrt");
         assertEquals("1.4142135623", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void subtractNumbers() throws CalculatorException {
-        calculator.interpret("5 2 -");
+        calculator.calculate("5 2 -");
         assertEquals("3", formatter.format(calculator.getStack()));
 
-        calculator.interpret("3 - ");
+        calculator.calculate("3 - ");
         assertEquals("0", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void subtractNumbersWithNegativeResult() throws CalculatorException {
-        calculator.interpret("3 4 -");
+        calculator.calculate("3 4 -");
         assertEquals("-1", formatter.format(calculator.getStack()));
     }
 
 
     @Test
     public void emptyInputString() throws CalculatorException {
-        calculator.interpret("");
+        calculator.calculate("");
         assertEquals("", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void clearStackWhenItHasOneNumber() throws CalculatorException {
-        calculator.interpret("0");
+        calculator.calculate("0");
         assertEquals("0", formatter.format(calculator.getStack()));
 
-        calculator.interpret("clear");
+        calculator.calculate("clear");
         assertEquals("", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void clearStackWhenItHasMultipleNumbers() throws CalculatorException {
-        calculator.interpret("1 2 3");
+        calculator.calculate("1 2 3");
         assertEquals("1 2 3", formatter.format(calculator.getStack()));
 
-        calculator.interpret("clear");
+        calculator.calculate("clear");
         assertEquals("", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void undoNumbersOnTheStack() throws CalculatorException {
-        calculator.interpret("5 4 3 2");
-        calculator.interpret("undo undo *");
+        calculator.calculate("5 4 3 2");
+        calculator.calculate("undo undo *");
         assertEquals("20", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void undoPreviousOperation() throws CalculatorException {
-        calculator.interpret("20");
-        calculator.interpret("5 *");
-        calculator.interpret("undo");
+        calculator.calculate("20");
+        calculator.calculate("5 *");
+        calculator.calculate("undo");
         assertEquals("20 5", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void undoEmptyStack() throws CalculatorException {
-        calculator.interpret("undo");
+        calculator.calculate("undo");
         assertEquals("", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void multiplyNumbers() throws CalculatorException {
-        calculator.interpret("7 6");
-        calculator.interpret("*");
+        calculator.calculate("7 6");
+        calculator.calculate("*");
         assertEquals("42", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void multiplyMultipleNumbers() throws CalculatorException {
-        calculator.interpret("1 2 3 4 5");
-        calculator.interpret("* * * *");
+        calculator.calculate("1 2 3 4 5");
+        calculator.calculate("* * * *");
         assertEquals("120", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void divideNumbers() throws CalculatorException {
-        calculator.interpret("7 12 2 /");
+        calculator.calculate("7 12 2 /");
         assertEquals("7 6", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void divideNumbersWithDecimalResult() throws CalculatorException {
-        calculator.interpret("42");
-        calculator.interpret("4 /");
+        calculator.calculate("42");
+        calculator.calculate("4 /");
         assertEquals("10.5", formatter.format(calculator.getStack()));
     }
 
     @Test
     public void divisionByZero() {
-        Exception e = assertThrows(CalculatorException.class, () -> calculator.interpret("5 0 /"));
+        Exception e = assertThrows(CalculatorException.class, () -> calculator.calculate("5 0 /"));
 
         assertEquals("operator / (position: 5): Division by zero", e.getMessage());
         assertEquals("5 0", formatter.format(calculator.getStack()));
@@ -142,7 +142,7 @@ public class CalculatorTest {
     @Test
     public void insufficientParameters() {
         Exception e = assertThrows(CalculatorException.class,
-                () -> calculator.interpret("1 2 3 * 5 + * * 6 5"));
+                () -> calculator.calculate("1 2 3 * 5 + * * 6 5"));
         assertEquals("operator * (position: 15): insufficient parameters", e.getMessage());
         assertEquals("11", formatter.format(calculator.getStack()));
     }
@@ -150,7 +150,7 @@ public class CalculatorTest {
     @Test
     public void invalidParameter() {
         Exception e = assertThrows(CalculatorException.class,
-                () -> calculator.interpret("1 2 + ="));
+                () -> calculator.calculate("1 2 + ="));
         assertEquals("field = (position: 7): invalid parameter", e.getMessage());
         assertEquals("3", formatter.format(calculator.getStack()));
     }

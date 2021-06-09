@@ -44,7 +44,7 @@ public class Calculator {
      * @return the calculator stack contents as a list
      * @throws CalculatorException invalid input field
      */
-    public OperandStack<BigDecimal> interpret(final String input) throws CalculatorException {
+    public OperandStack<BigDecimal> calculate(final String input) throws CalculatorException {
         Matcher fieldMatcher = inputFieldPattern.matcher(input);
         while (fieldMatcher.find()) {
             final String nextField = fieldMatcher.group();

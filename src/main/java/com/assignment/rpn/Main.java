@@ -33,7 +33,7 @@ public class Main {
                 break;
             } else if (!nextLine.isBlank()) {
                 try {
-                    calculator.interpret(nextLine);
+                    calculator.calculate(nextLine);
                 } catch (CalculatorException e) {
                     out.println(e.getMessage());
                 }
