@@ -1,4 +1,4 @@
-package com.assignment.rpn.view;
+package com.assignment.rpn.format;
 
 import com.assignment.rpn.calculator.OperandStack;
 

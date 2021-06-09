@@ -2,8 +2,8 @@ package com.assignment.rpn;
 
 import com.assignment.rpn.calculator.Calculator;
 import com.assignment.rpn.calculator.CalculatorException;
-import com.assignment.rpn.view.CommonStackFormatter;
-import com.assignment.rpn.view.StackFormatter;
+import com.assignment.rpn.format.CommonStackFormatter;
+import com.assignment.rpn.format.StackFormatter;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
