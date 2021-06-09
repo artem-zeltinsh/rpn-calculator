@@ -11,7 +11,7 @@ RPN Calculator is a command-line Reverse Polish Notation calculator.
 * Maven
 
 ## How to build and run
-* Run `./run.sh` from the command line. If a system user has no execution permissions for the file try to run `chmod u+x run.sh`.
+* Run `./run_calculator.sh` from the command line. If a system user has no execution permissions for the file try to run `chmod u+x run_calculator.sh`.
 * Other option is to run `mvn clean compile exec:exec -Dexec.executable="java"`.
 
 
