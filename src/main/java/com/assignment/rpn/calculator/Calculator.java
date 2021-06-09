@@ -42,6 +42,10 @@ public class Calculator {
         this.formatter = formatter;
     }
 
+    public OperandStack<BigDecimal> getStack() {
+        return new CalculatorStack<>(stack);
+    }
+
     /**
      * Method expects to receive string containing whitespace separated list of numbers and operators.
      *
@@ -71,7 +75,7 @@ public class Calculator {
                         errorMessage("field", nextField, position, "invalid parameter"));
             }
         }
-        return new CalculatorStack<>(stack);
+        return getStack();
     }
 
     private OperatorContext<BigDecimal> operatorContext() {

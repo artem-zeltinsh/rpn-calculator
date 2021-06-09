@@ -2,7 +2,6 @@ package com.assignment.rpn;
 
 import com.assignment.rpn.calculator.Calculator;
 import com.assignment.rpn.calculator.CalculatorException;
-import com.assignment.rpn.calculator.OperandStack;
 import com.assignment.rpn.view.CommonStackFormatter;
 import com.assignment.rpn.view.StackFormatter;
 
@@ -18,7 +17,7 @@ import static java.lang.System.out;
  */
 public class Main {
 
-    private final static Set<String> exitCommands = Set.of("exit", "quit");
+    public static final String EXIT_COMMAND = "exit";
 
     public static void main(String[] args) {
         printBanner();
@@ -30,16 +29,15 @@ public class Main {
         Scanner input = new Scanner(System.in);
         while (input.hasNextLine()) {
             final String nextLine = input.nextLine().trim();
-            if (exitCommands.contains(nextLine)) {
+            if (EXIT_COMMAND.equals(nextLine)) {
                 break;
             } else if (!nextLine.isBlank()) {
                 try {
-                    OperandStack<BigDecimal> result = calculator.interpret(nextLine);
-                    out.println("stack: " + formatter.format(result));
+                    calculator.interpret(nextLine);
                 } catch (CalculatorException e) {
                     out.println(e.getMessage());
                 }
-
+                out.println("stack: " + formatter.format(calculator.getStack()));
             }
         }
 
@@ -50,7 +48,6 @@ public class Main {
         out.println(" ----=-=------------------------------------=-=-=---");
         out.println("/   Welcome to the command-line RPN calculator!   /");
         out.println("--=-=-=------------------------------------=-=----");
-        out.println(" Enter " + String.join(", ", exitCommands) + " commands to finish the session.");
         out.println();
     }
 }
