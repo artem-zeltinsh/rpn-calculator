@@ -3,15 +3,15 @@ package com.assignment.rpn.calculator;
 import java.util.Iterator;
 
 /**
- * A stack that can contain real numbers.
- *
- * @param <T> type that represents real numbers
+ * RPN calculator stack that can contain real numbers
+ * @param <T> numeric type that represents the stack operands
  */
 public interface OperandStack<T> extends Iterable<T> {
 
     /**
      * Pops a number from the top of the stack.
      * @return the number at the top of the stack.
+     * @throws java.util.NoSuchElementException if the stack is empty
      */
     T pop();
 

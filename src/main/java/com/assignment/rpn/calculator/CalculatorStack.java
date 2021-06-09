@@ -7,8 +7,7 @@ import java.util.NoSuchElementException;
 
 /**
  * Implementation of RPN calculator stack that can contain real numbers.
- *
- * @param <T> type that represents real numbers
+ * @param <T> numeric type that represents the stack operands
  */
 public class CalculatorStack<T> implements OperandStack<T> {
 
@@ -23,12 +22,6 @@ public class CalculatorStack<T> implements OperandStack<T> {
         }
     }
 
-    /**
-     * Pops a number from the top of the stack.
-     *
-     * @return the number at the top of the stack
-     * @throws NoSuchElementException if the stack is empty
-     */
     @Override
     public T pop() {
         if (stack.isEmpty()) {

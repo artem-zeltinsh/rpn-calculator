@@ -6,6 +6,10 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Iterator;
 
+/**
+ * Formats numbers stored on the operand stack as a space-separated list. Decimal numbers
+ * are formatted to 10 decimal places (or less if it causes no loss of precision).
+ */
 public class CommonStackFormatter implements StackFormatter<BigDecimal> {
 
     private final int scale;

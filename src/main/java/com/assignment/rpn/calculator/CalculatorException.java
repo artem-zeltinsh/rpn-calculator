@@ -1,7 +1,7 @@
 package com.assignment.rpn.calculator;
 
 /**
- * Thrown to indicate that RPN calculator encounter an exceptional condition.
+ * Thrown to indicate that an exceptional condition occurred during the calculation.
  */
 public class CalculatorException extends Exception {
 
