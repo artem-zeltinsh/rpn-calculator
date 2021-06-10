@@ -2,7 +2,7 @@ package com.assignment.rpn.operator;
 
 import com.assignment.rpn.calculator.CalculatorStack;
 import com.assignment.rpn.calculator.OperandStack;
-import com.assignment.rpn.calculator.StackStateHolder;
+import com.assignment.rpn.calculator.StackStatesHolder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -16,13 +16,13 @@ public abstract class AbstractOperatorTest {
     static final MathContext DECIMAL_CONTEXT = new MathContext(15, FLOOR);
 
     CalculatorStack<BigDecimal> stack;
-    StackStateHolder<BigDecimal> states;
+    StackStatesHolder<BigDecimal> states;
     OperatorContext<BigDecimal> context;
 
     @BeforeEach
     public void setup() {
         stack = new CalculatorStack<>();
-        states = new StackStateHolder<>();
+        states = new StackStatesHolder<>();
         context = new OperatorContext<>() {
             @Override
             public OperandStack<BigDecimal> getStack() {
@@ -30,7 +30,7 @@ public abstract class AbstractOperatorTest {
             }
 
             @Override
-            public StackStateHolder<BigDecimal> getStates() {
+            public StackStatesHolder<BigDecimal> getStates() {
                 return states;
             }
         };

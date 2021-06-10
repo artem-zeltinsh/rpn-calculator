@@ -27,7 +27,7 @@ public class Calculator {
      */
     private final OperandStack<BigDecimal> stack = new CalculatorStack<>();
 
-    private final StackStateHolder<BigDecimal> stateHolder = new StackStateHolder<>();
+    private final StackStatesHolder<BigDecimal> stackStatesHolder = new StackStatesHolder<>();
 
     public Calculator(Set<Operator<BigDecimal>> operators) {
         operators.forEach(op -> this.operators.put(op.getSymbol(), op));
@@ -56,7 +56,7 @@ public class Calculator {
                 } else {
                     final OperandStack<BigDecimal> recordedState = new CalculatorStack<>(stack);
                     stack.push(new BigDecimal(nextField).setScale(15, RoundingMode.HALF_DOWN));
-                    stateHolder.push(recordedState);
+                    stackStatesHolder.push(recordedState);
                 }
             } catch (ArithmeticException | InsufficientParametersException e) {
                 throw new CalculatorException(
@@ -77,8 +77,8 @@ public class Calculator {
             }
 
             @Override
-            public StackStateHolder<BigDecimal> getStates() {
-                return stateHolder;
+            public StackStatesHolder<BigDecimal> getStates() {
+                return stackStatesHolder;
             }
         };
     }

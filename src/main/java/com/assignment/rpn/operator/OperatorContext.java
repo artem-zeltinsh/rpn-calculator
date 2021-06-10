@@ -1,11 +1,11 @@
 package com.assignment.rpn.operator;
 
 import com.assignment.rpn.calculator.OperandStack;
-import com.assignment.rpn.calculator.StackStateHolder;
+import com.assignment.rpn.calculator.StackStatesHolder;
 
 public interface OperatorContext<T> {
 
     OperandStack<T> getStack();
 
-    StackStateHolder<T> getStates();
+    StackStatesHolder<T> getStates();
 }

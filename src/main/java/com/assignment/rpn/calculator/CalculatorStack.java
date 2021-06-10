@@ -3,7 +3,6 @@ package com.assignment.rpn.calculator;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 /**
  * Implementation of RPN calculator stack that can contain real numbers.
@@ -11,7 +10,7 @@ import java.util.NoSuchElementException;
  */
 public class CalculatorStack<T> implements OperandStack<T> {
 
-    private final Deque<T> stack = new ArrayDeque<>();
+    private final Deque<T> state = new ArrayDeque<>();
 
     public CalculatorStack() {
     }
@@ -24,41 +23,38 @@ public class CalculatorStack<T> implements OperandStack<T> {
 
     @Override
     public T pop() {
-        if (stack.isEmpty()) {
-            throw new NoSuchElementException();
-        }
-        return stack.pop();
+        return state.pop();
     }
 
     @Override
     public void push(T number) {
-        stack.push(number);
+        state.push(number);
     }
 
     @Override
     public void clear() {
-        stack.clear();
+        state.clear();
     }
 
     @Override
     public int size() {
-        return stack.size();
+        return state.size();
     }
 
     @Override
     public Iterator<T> iterator() {
-        return stack.iterator();
+        return state.iterator();
     }
 
     @Override
     public Iterator<T> descendingIterator() {
-        return stack.descendingIterator();
+        return state.descendingIterator();
     }
 
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        for (Iterator<T> it = stack.descendingIterator(); it.hasNext(); ) {
+        for (Iterator<T> it = state.descendingIterator(); it.hasNext(); ) {
             result.append(it.next());
             if (it.hasNext()) {
                 result.append(" ");
