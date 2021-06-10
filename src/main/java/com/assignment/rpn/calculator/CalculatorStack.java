@@ -3,7 +3,6 @@ package com.assignment.rpn.calculator;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 /**
  * Implementation of RPN calculator stack that can contain real numbers.
