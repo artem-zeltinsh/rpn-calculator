@@ -1,15 +1,13 @@
 package com.assignment.rpn.operator;
 
 import com.assignment.rpn.calculator.OperandStack;
-import com.assignment.rpn.calculator.StackStateHolder;
+import com.assignment.rpn.calculator.StackStatesHolder;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.Iterator;
 
 /**
- * Utility class for operators.
- * <p>
  * The {@link #ADD}, {@link #SUBTRACT}, {@link #MULTIPLY}, {@link #DIVIDE} operators perform
  * addition, subtraction, multiplication and division respectively on the top two items from the stack.
  * <p>
@@ -46,7 +44,7 @@ public final class Operators {
     public static final Operator<BigDecimal> UNDO = new AbstractOperator<>("undo") {
         @Override
         public void apply(OperatorContext<BigDecimal> context) {
-            StackStateHolder<BigDecimal> states = context.getStates();
+            StackStatesHolder<BigDecimal> states = context.getStates();
             if (!states.isEmpty()) {
                 OperandStack<BigDecimal> stack = context.getStack();
                 stack.clear();
