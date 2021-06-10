@@ -24,7 +24,7 @@ RPN Calculator is a command-line Reverse Polish Notation calculator.
 7 3 +
 stack: 10
 ```
-* Multiple operations in as a single input line
+* Multiple operators in a single input line, `clear`, `undo` and `exit`
 ```shell
 clear
 stack:
