@@ -41,7 +41,7 @@ public class Calculator {
      * Method expects to receive string containing whitespace separated list of numbers and operators.
      *
      * @param input string containing whitespace separated list of numbers and operators
-     * @return the calculator stack contents as a list
+     * @return the current state of the operand stack
      * @throws CalculatorException invalid input field
      */
     public OperandStack<BigDecimal> calculate(final String input) throws CalculatorException {

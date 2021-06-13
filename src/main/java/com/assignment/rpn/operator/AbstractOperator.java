@@ -3,7 +3,7 @@ package com.assignment.rpn.operator;
 import java.util.Objects;
 
 /**
- * Skeletal implementation of the {@code Operator} interface.
+ * Skeletal implementation of the {@link Operator} interface.
  * @param <T> the type of operands.
  */
 public abstract class AbstractOperator<T> implements Operator<T> {

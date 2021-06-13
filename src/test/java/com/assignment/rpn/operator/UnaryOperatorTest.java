@@ -18,8 +18,8 @@ public class UnaryOperatorTest extends AbstractOperatorTest {
     @Test
     public void negateOperator() throws InsufficientParametersException {
         stack.push(BigDecimal.valueOf(5));
-        UnaryOperator<BigDecimal> remainderOperator = new UnaryOperator<>("!", BigDecimal::negate);
-        remainderOperator.apply(context);
+        UnaryOperator<BigDecimal> negateOperator = new UnaryOperator<>("!", BigDecimal::negate);
+        negateOperator.apply(context);
         assertEquals("-5", stack.toString());
     }
 }
