@@ -8,7 +8,7 @@ import java.util.Iterator;
 
 /**
  * Formats numbers stored on the operand stack as a space-separated list. Decimal numbers
- * are formatted to 10 decimal places (or less if it causes no loss of precision).
+ * are formatted to the specified number of decimal places (or less if it causes no loss of precision).
  */
 public class CommonStackFormatter implements StackFormatter<BigDecimal> {
 

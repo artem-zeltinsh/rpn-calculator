@@ -2,7 +2,7 @@ package com.assignment.rpn.operator;
 
 /**
  * Operator refers to the symbol denoting the operation. Operation is applied to operands
- * that are provide by {@code OperatorContext}.
+ * that are provide by {@link OperatorContext}.
  */
 public interface Operator<T> {
 
@@ -13,7 +13,7 @@ public interface Operator<T> {
     String getSymbol();
 
     /**
-     * Applies operation to operands provided by the operation context.
+     * Applies operation to operands provided by the operator context.
      * @param context provides operands for this operation
      * @throws InsufficientParametersException if operator context is missing operands
      */
